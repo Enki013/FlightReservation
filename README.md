@@ -1,64 +1,30 @@
-## FlightReservation Projesi
+## FlightReservation Project
 
-### Proje Tanıtımı
+### Project Overview
 
-FlightReservation, uçak rezervasyonlarını yönetmek için geliştirilmiş bir Windows Forms uygulamasıdır. Bu proje, uçaklar, lokasyonlar ve rezervasyonlar gibi temel bileşenleri yönetmek için Entity Framework Core kullanır.
+FlightReservation is a Windows Forms application designed to manage flight reservations. This project uses Entity Framework Core to handle essential components such as aircraft, locations, and reservations.
 
-### Kullanılan Teknolojiler ve Kütüphaneler
+### Technologies and Libraries Used
 
 - **.NET 8.0**
-
 - **Entity Framework Core 8.0.6**
-
-  - `Microsoft.EntityFrameworkCore`
-
-  - `Microsoft.EntityFrameworkCore.Design`
-
-  - `Microsoft.EntityFrameworkCore.Sqlite`
-
+  - `Microsoft.EntityFrameworkCore`
+  - `Microsoft.EntityFrameworkCore.Design`
+  - `Microsoft.EntityFrameworkCore.Sqlite`
 - **Newtonsoft.Json 13.0.3**
 
-### Proje Yapısı
+### Project Structure
 
-- **ApplicationDbContext**: Veritabanı bağlamını yönetir.
+- **ApplicationDbContext**: Manages the database context.
+- **Aircraft**: Stores aircraft information.
+- **Location**: Stores location information.
+- **Reservation**: Stores reservation information.
+- **Forms**: User interface components (MainForm, AircraftForm, ReservationForm).
 
-- **Aircraft**: Uçak bilgilerini tutar.
+### Sample Code
 
-- **Location**: Lokasyon bilgilerini tutar.
 
-- **Reservation**: Rezervasyon bilgilerini tutar.
-
-- **Forms**: Kullanıcı arayüzü bileşenleri (MainForm, AircraftForm, ReservationForm).
-
-### Örnek Kodlar
-
-#### ApplicationDbContext
-
-```csharp:FlightReservation/ApplicationDBContext.cs
-
-protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-
-{
-
-    string dbPath = "reservation.db";
-
-    if (!optionsBuilder.IsConfigured)
-
-    {
-
-        optionsBuilder.UseSqlite($"Data Source={dbPath}");
-
-    }
-
-    // Ensure the database is created
-
-    Database.EnsureCreated();
-
-}
-
-```
-
-#### Reservation Sınıfı
+#### Reservation
 
 ```csharp:FlightReservation/Reservation.cs
 
